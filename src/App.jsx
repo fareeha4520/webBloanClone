@@ -9,6 +9,7 @@ import Loan from "../components/applyLoan";
 import Footer from "../components/footercontact";
 import FooterText from "../components/footerText";
 import ScheduleCallModal from "../components/schedulemoadal";
+import QuickContactModal from "../components/quickClick";
 
 const Icon = ({ src, size = 20, className = "" }) => (
   <img src={src} width={size} height={size} className={className} alt="" />
@@ -18,6 +19,7 @@ const MortgageLandingPage = () => {
   const [educationOpen, setEducationOpen] = useState(false);
   const [partnersOpen, setPartnersOpen] = useState(false);
   const [scheduleOpen, setScheduleOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
 
   const icons = {
     phone: "https://img.icons8.com/ios/50/ffffff/phone.png",
@@ -41,9 +43,9 @@ const MortgageLandingPage = () => {
           </svg>
         </div>
 
-        {/* NAV */}
+        
         <nav className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 py-6 gap-6">
-          {/* Logo */}
+          
           <div className="flex items-center gap-3">
             <div className="flex flex-col items-center">
               <img
@@ -62,7 +64,7 @@ const MortgageLandingPage = () => {
             </div>
           </div>
 
-          {/* Nav links */}
+  
           <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-10 font-bold text-sm sm:text-base text-center">
             <div className="relative">
               <button
@@ -98,7 +100,7 @@ const MortgageLandingPage = () => {
             <a href="#" className="hover:text-gray-200 transition">Required Documentation List</a>
           </div>
 
-          {/* Right Side */}
+        
           <div className="flex flex-col sm:flex-row items-center gap-4 lg:gap-6 w-full lg:w-auto">
             <a href="tel:2067958411" className="flex items-center gap-2 hover:text-gray-200 transition">
               <img
@@ -119,7 +121,7 @@ const MortgageLandingPage = () => {
           </div>
         )}
 
-        {/* HERO MAIN CONTENT */}
+        
         <main className="relative z-10 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center px-4 sm:px-6 lg:px-8 pt-12 pb-20 gap-10">
           <div className="flex-1 max-w-2xl w-full text-center lg:text-left">
             <p className="text-md font-bold tracking-[0.2em] mb-6 uppercase">
@@ -147,7 +149,9 @@ const MortgageLandingPage = () => {
                 />
                 Schedule Intro Call
               </button>
-              <button className="w-full sm:w-auto flex items-center justify-center gap-3 border-2 border-white/30 px-6 py-4 rounded-xl font-semibold transition transform duration-300 hover:-translate-y-1">
+              <button
+                onClick={() => setContactOpen(true)}
+               className="w-full sm:w-auto flex items-center justify-center gap-3 border-2 border-white/30 px-6 py-4 rounded-xl font-semibold transition transform duration-300 hover:-translate-y-1">
                 Quick Contact
                 <img
                   src="https://cdn.prod.website-files.com/65d509901b89bb3fd2a62af7/65d509901b89bb3fd2a62b0d_ic-arrow-forward-white.svg"
@@ -210,13 +214,12 @@ const MortgageLandingPage = () => {
         </main>
       </div>
 
-      {/* BELOW-HERO SECTIONS: each constrained to max-w-7xl so content doesn't
-          stretch full-bleed and look like it's "floating" in the center on big screens */}
+      
       <div className="max-w-7xl mx-auto">
-        <CommunitySection setScheduleOpen={setScheduleOpen} />
-        <EducationSection setScheduleOpen={setScheduleOpen} />
-        <CreditBuild setScheduleOpen={setScheduleOpen} />
-        <MortgageCalculator />
+        <CommunitySection setScheduleOpen={setScheduleOpen}  />
+        <EducationSection setScheduleOpen={setScheduleOpen} setContactOpen={setContactOpen} />
+        <CreditBuild setScheduleOpen={setScheduleOpen} setContactOpen={setContactOpen} />
+        <MortgageCalculator setContactOpen={setContactOpen} />
         <FAQ />
         <Loan setScheduleOpen={setScheduleOpen} />
         <Footer />
@@ -224,6 +227,7 @@ const MortgageLandingPage = () => {
       </div>
 
       {scheduleOpen && <ScheduleCallModal onClose={() => setScheduleOpen(false)} />}
+          {contactOpen && <QuickContactModal onClose={() => setContactOpen(false)} />}
     </div>
   );
 };

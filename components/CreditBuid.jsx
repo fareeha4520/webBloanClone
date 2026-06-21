@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 
 const items = [
@@ -16,83 +15,84 @@ const items = [
   },
 ];
 
-const CreditBuild =  ({ setScheduleOpen }) => {
+const CreditBuild = ({ setScheduleOpen, setContactOpen }) => {
   return (
-    <div className="w-full bg-gray-100 py-20 px-10 rounded-2xl">
-      <div className="flex flex-col lg:flex-row gap-12">
-
+    <div className="w-full bg-gray-100 py-10 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-10 rounded-2xl">
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
 
         <div className="relative w-full lg:w-[60%] rounded-3xl overflow-hidden">
 
-      
           <img
             src="https://cdn.prod.website-files.com/65d509901b89bb3fd2a62b18/6632bc62d05574b6f73b2c4b_Speaking%20AW.jpg"
             alt="speaker"
-            className="w-full h-150 object-cover rounded-3xl"
+            className="w-full h-[280px] sm:h-[400px] lg:h-150 object-cover rounded-3xl"
           />
 
-          
-          <div className="absolute bottom-6 left-6 bg-white rounded-2xl shadow-lg p-6 w-[70%]">
-            <div className="text-xs font-bold text-teal-600 tracking-widest mb-2 bg-green-100 w-35 rounded-md p-2">
+          <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 bg-white rounded-2xl shadow-lg p-4 sm:p-6 w-[85%] sm:w-[70%]">
+            <div className="text-xs font-bold text-teal-600 tracking-widest mb-2 bg-green-100 inline-block w-auto rounded-md px-3 py-2">
               CREDIT BUILDING
             </div>
-            <h3 className="text-lg font-semibold text-gray-900">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900">
               Avoid This Credit Myth
             </h3>
           </div>
         </div>
 
-        
         <div className="w-full lg:w-[40%] flex flex-col justify-between">
 
           <div>
-            <p className="text-green-700 font-bold tracking-[4px] mb-4">
+            <p className="text-green-700 font-bold tracking-[3px] sm:tracking-[4px] mb-4 text-sm sm:text-base">
               EDUCATION
             </p>
 
-            <h1 className="text-4xl font-semibold leading-snug text-gray-900 mb-10">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-snug text-gray-900 mb-8 sm:mb-10">
               Learn More About Your Mortgage
             </h1>
 
-            
-            <div className="space-y-5">
-            {items.map((item, i) => {
-  const tagColors = [
-    "bg-green-100 text-green-600",
-    "bg-blue-100 text-blue-600",
-    "bg-orange-100 text-orange-600",
-  ];
+            <div className="space-y-4 sm:space-y-5">
+              {items.map((item, i) => {
+                const tagColors = [
+                  "bg-green-100 text-green-600",
+                  "bg-blue-100 text-blue-600",
+                  "bg-orange-100 text-orange-600",
+                ];
 
-  return (
-    <div
-      key={i}
-      className="bg-white rounded-2xl p-5 shadow-sm hover:shadow-md transition"
-    >
-      <span
-        className={`text-xs uppercase px-3 py-1 rounded-full ${tagColors[i]}`}
-      >
-        {item.tag}
-      </span>
+                return (
+                  <div
+                    key={i}
+                    className="bg-white rounded-2xl p-4 sm:p-5 shadow-sm hover:shadow-md transition"
+                  >
+                    <span
+                      className={`text-xs uppercase px-3 py-1 rounded-full inline-block ${tagColors[i]}`}
+                    >
+                      {item.tag}
+                    </span>
 
-      <p className="mt-3 font-medium text-gray-900">
-        {item.title}
-      </p>
-    </div>
-  );
-})}
+                    <p className="mt-3 font-medium text-gray-900 text-sm sm:text-base">
+                      {item.title}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          
-          <div className="flex gap-4 mt-10">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 sm:mt-10">
             <button
-             onClick={() => setScheduleOpen(true)}
-             className="bg-green-800 text-white px-6 py-3 rounded-xl flex items-center gap-2 font-semibold">
-             <img src="https://cdn.prod.website-files.com/6463653eea7395f6535ff53c/646383f8ff0a8d874058f83e_ic-calendar-white.svg"></img>
-              Schedule Intro Call 
+              onClick={() => setScheduleOpen(true)}
+              className="bg-green-800 text-white px-6 py-3 rounded-xl flex items-center justify-center gap-2 font-semibold"
+            >
+              <img
+                src="https://cdn.prod.website-files.com/6463653eea7395f6535ff53c/646383f8ff0a8d874058f83e_ic-calendar-white.svg"
+                alt=""
+                className="w-4"
+              />
+              Schedule Intro Call
             </button>
 
-            <button className="border border-gray-900 px-6 py-3 rounded-xl flex items-center gap-2 font-semibold text-black">
+            <button
+              onClick={() => setContactOpen(true)}
+             className="border border-gray-900 px-6 py-3 rounded-xl flex items-center justify-center gap-2 font-semibold text-black">
               Quick Contact <ArrowRight size={18} />
             </button>
           </div>

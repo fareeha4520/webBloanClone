@@ -1,9 +1,8 @@
-
 const FooterText = () => {
   return (
-    <footer className="bg-[#1c1c1c] text-white px-6 py-6 text-[16px] leading-6">
+    <footer className="bg-[#1c1c1c] text-white px-4 sm:px-6 py-6 text-[14px] sm:text-[16px] leading-6">
       <div>
-        <hr className="border-gray-700 my-10" />
+        <hr className="border-gray-700 my-6 sm:my-10" />
         <p>Adrian Webb | NMLS ID: 811655 | Milestone Mortgage Solutions, LLC | NMLS
              #1815656 | 
              <span className="underline">128 Union Street, Suite 101, New Bedford, MA 02740
@@ -37,9 +36,8 @@ const FooterText = () => {
               <p className="mt-6">copyright ©2025 | Milestone Mortgage Solutions, LLC | NMLS #1815656</p>
       </div>
 
-      <hr className="border-gray-700 my-10" />
+      <hr className="border-gray-700 my-6 sm:my-10" />
 
-      
         <p>Visit
             <span className="underline"> www.nmlsconsumeraccess.org</span> and 
             <span className="underline"> www.milestonemortgagesolutions.com/legal</span>
@@ -48,11 +46,11 @@ const FooterText = () => {
              All loans are subject to credit approval. Other restrictions may apply. 
              For additional information visit 
              <span className="underline"> www.milestonemortgagesolutions.com.</span></p>
-         <div className="flex justify-end">
+         <div className="flex justify-end mt-4 sm:mt-0">
         <img
           src="https://cdn.prod.website-files.com/65d509901b89bb3fd2a62af7/65d509901b89bb3fd2a62c48_download%20(71).svg"
           alt="Equal Housing Opportunity"
-          className="w-20 flex "
+          className="w-14 sm:w-20"
         /></div>
       
     </footer>
